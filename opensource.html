@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+          body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('rajasthan-police-background.jpg'); /* Replace with your image file path */
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #333; /* Dark Text Color */
+}
+form {
+    max-width: 400px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 4px;
+  }
+
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+
+
+        .iml {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+        }
+
+        .list li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        .list li a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .divi3 {
+            text-align: center;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #error-message {
+            color: red;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        #logo {
+      width: 100px;
+      height: 100px;
+      margin: 20px auto;
+    }
+
+    #logo img {
+      width: 100%;
+      height: auto;
+    }
+
+        .hidden {
+            display: none;
+        }
+        .list{
+            display: inline;
+        }
+        footer
+        {
+            background-color: #333;
+            color: #fff;
+            padding: 1px;
+            text-align: center;
+
+        }
+        #announcement-section {
+      background-color: #fff; /* White Background for Announcements */
+      border: 1px solid #ddd;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    #announcement-list {
+      list-style-type: none;
+      padding: 0;
+      white-space: nowrap; /* Prevents line breaks */
+      animation: marquee linear infinite; /* Adjust the duration as needed */
+      animation-duration: 15s; /* Adjust the duration as needed */
+      display: inline-block; /* Display announcements in a single line */
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(100%);
+      }
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+
+    </style>
+
+<section class="a">
+    <div id="logo">
+        <img src="rajasthan-police.jpg" alt="Logo">
+    </div>
+</section>
+<section class="iml">
+    <ul class="list">
+        <li>       <a href="http://127.0.0.1:3000/rajhack.html">Home</a></li>
+        <li>       <a href="http://127.0.0.1:3000/rajaboutus.html">About us</a></li>
+        <li>       <a href="http://127.0.0.1:3000/rajhelp.html">Contact</a></li>
+    </ul>
+</section>
+<section id="announcement-section">
+    <h2>📢 Latest Announcements:</h2>
+    <ul id="announcement-list">
+      <li>New Chief of Police appointed.</li>
+      <li>Crime rates down by 10%.</li>
+      <li>Stay safe, follow COVID guidelines.</li>
+      <!-- Add more announcements as needed -->
+    </ul>
+  </section>
+
+<div class="container" id="loginContainer">
+    <form id="loginForm">
+        <h2><center>FIR LOGIN</center></h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="button" onclick="login()">Login</button>
+
+        <p id="error-message" class="hidden"></p>
+
+        <!-- New button for redirection (initially hidden) -->
+        <button type="button" id="openButton" class="hidden" onclick="openWebpage()">Open Webpage</button>
+
+        <p>Don't have an account? <a href="#" onclick="toggleForm()">Sign up</a></p>
+    </form>
+</div>
+
+<div class="container hidden" id="signupContainer">
+    <form id="signupForm">
+        <h2>Sign Up</h2>
+        <label for="newUsername">New Username:</label>
+        <input type="text" id="newUsername" name="newUsername" required>
+
+        <label for="newEmail">Email:</label>
+        <input type="email" id="newEmail" name="newEmail" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
+
+        <label for="newPassword">New Password:</label>
+        <input type="password" id="newPassword" name="newPassword" required>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+        <button type="button" onclick="signup()">Register</button>
+
+        <p id="signup-message" class="hidden"></p>
+
+        <p>Already have an account? <a href="#" onclick="toggleForm()">Login</a></p>
+    </form>
+</div>
+<footer><center>
+    <p> &copy; 2023 Rajasthan Police</p></center>
+  </footer>
+
+<script>;
+// You can dynamically update the announcements
+const announcementList = document.getElementById('announcement-list');
+    const announcements = ['New Chief of Police appointed.', 'Crime rates down by 10%.', 'Stay safe, follow COVID guidelines.'];
+
+    announcements.forEach(announcement => {
+      const li = document.createElement('li');
+      li.textContent = announcement;
+      announcementList.appendChild(li);
+    });
+
+    function toggleForm() {
+        document.getElementById('loginContainer').classList.toggle('hidden');
+        document.getElementById('signupContainer').classList.toggle('hidden');
+        document.getElementById('error-message').classList.add('hidden');
+        document.getElementById('signup-message').classList.add('hidden');
+        document.getElementById('openButton').classList.add('hidden'); // Hide the Open Webpage button
+    }
+
+    function login() {
+        var username = document.getElementById("username").value;
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+        var errorMessage = document.getElementById("error-message");
+        var openButton = document.getElementById("openButton");
+
+        // Perform basic client-side validation
+        if (username === "" || email === "" || password === "") {
+            errorMessage.textContent = "Please enter all fields.";
+            errorMessage.classList.remove('hidden');
+            openButton.classList.add('hidden'); // Hide the Open Webpage button if there is an error
+        } else {
+            // Perform login logic here (e.g., send data to server)
+            errorMessage.textContent = "Login successful!";
+            errorMessage.classList.remove('hidden');
+            errorMessage.style.color = "green";
+
+            // Show the button for redirection
+            openButton.classList.remove('hidden');
+        }
+    }
+
+    function signup() {
+        var newUsername = document.getElementById("newUsername").value;
+        var newEmail = document.getElementById("newEmail").value;
+        var newPassword = document.getElementById("newPassword").value;
+        var confirmPassword = document.getElementById("confirmPassword").value;
+        var signupMessage = document.getElementById("signup-message");
+        var openButton = document.getElementById("openButton");
+
+        // Perform basic client-side validation
+        if (newUsername === "" || newEmail === "" || newPassword === "" || confirmPassword === "") {
+            signupMessage.textContent = "Please enter all fields.";
+            signupMessage.classList.remove('hidden');
+            signupMessage.style.color = "red";
+            openButton.classList.add('hidden'); // Hide the Open Webpage button if there is an error
+        } else if (newPassword !== confirmPassword) {
+            signupMessage.textContent = "Passwords do not match.";
+            signupMessage.classList.remove('hidden');
+            signupMessage.style.color = "red";
+            openButton.classList.add('hidden'); // Hide the Open Webpage button if there is an error
+        } else {
+            // Perform signup logic here (e.g., send data to server)
+            signupMessage.textContent = "Registration successful!";
+            signupMessage.classList.remove('hidden');
+            signupMessage.style.color = "green";
+
+            // Show the button for redirection
+            openButton.classList.remove('hidden');
+        }
+    }
+
+    function openWebpage() {
+        // Redirect to another page when the button is clicked
+        window.location.href = "http://127.0.0.1:3000/rajhacklink.html";
+    }
+</script>
+</body>
+</html>
